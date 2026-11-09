@@ -1,0 +1,20 @@
+2026-11-08T23:18:55+09:00
+python 3.10.12
+numpy 2.2.4
+python-flint 0.9.0
+  blas:
+    include directory: /opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/include
+    lib directory: /opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/lib
+    name: scipy-openblas
+    openblas configuration: OpenBLAS 0.3.28  USE64BITINT DYNAMIC_ARCH NO_AFFINITY
+    pc file directory: /project/.openblas
+f1a78ec140e2c92c3cad4086198b3709df114805d6376641e31bcfed536648d7  computations/export_log10_even_yukawa_family_parseval_data.py
+c4c03b4720f1c3ea0218b8eff4a9a5d9ec4fe631adae9bfbf209e427a41a6c70  computations/extract_log10_even_K400_full_contract_base.py
+4b4e83ec4edb1ac83c3bac462612f106f963720b28e94203b858946b45aabccd  computations/generate_log10_endpoint_contract_cache.py
+b5864c62d4a1143d4f5aa7944c0489a08f2bcd44bccb1f7f9793bece88f520a5  computations/log10_even_K400_sharp_safe_arb.py
+7f730ec6090b4eb632dd9241287b4e1e191b0c5efa2d7cf4bc773546279cac69  computations/log8_block_certificate_body.py
+b7b39ea9c1dbc6fcbe92b0ccd21a4a9a6799337a1bd54a9bd6f9a10bb0386fd1  computations/verify_first_mixed_band_endpoint_log5.py
+f1a78ec140e2c92c3cad4086198b3709df114805d6376641e31bcfed536648d7  scratch/export_log10_even_yukawa_family_parseval_data.py
+1
+               total        used        free      shared  buff/cache   available
+Mem:              30           4           0           0          26          26

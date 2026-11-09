@@ -1,0 +1,18 @@
+# reference material used while preparing the repository; not part of the release
+_ref/
+
+# Python
+__pycache__/
+*.pyc
+
+# typesetting scratch
+paper/build/
+
+# CI output
+supplement/prime-graph-check.ci.txt
+
+# regenerated parent matrices (supplement/REPRODUCTION.md, about 0.7 GB per
+# parity); the retained small results in supplement/certificate/results/
+# are tracked explicitly
+supplement/work/
+supplement/scratch/

@@ -1,0 +1,16 @@
+Submission preparation, 23 October 2026 (China Standard Time).
+
+Existing frozen verifier:
+log11 round-1 frozen results: metadata, pivot counts, signs, hashes passed
+
+Fresh elimination of the stored Schur matrices, python-flint 0.9.0:
+even last pivot: [3.6823877739833403e-50 +/- 2.23e-67] > 0
+odd last pivot: [3.6435028273354605239e-45 +/- 3.33e-65] > 0
+All seven even and six odd pivots passed.
+
+Exact symbolic checks:
+even and odd Green boundary-response identities: PASS
+digamma summand normalization: PASS
+
+Four-step prime enumeration: see prime-graph-check.txt.
+The historical large matrix construction was not rerun.

@@ -1,0 +1,54 @@
+name: Verify certificates
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  short-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: supplement
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r ../requirements.txt
+          python -c "import numpy, flint, sympy; print('numpy', numpy.__version__); print('python-flint', flint.__version__); print('sympy', sympy.__version__)"
+
+      - name: Supplement checksum manifest (CONTENTS.sha256)
+        run: sha256sum -c CONTENTS.sha256
+
+      - name: Frozen endpoint results (metadata, pivot counts, signs, hashes)
+        run: python certificate/verify_frozen_results.py
+
+      - name: Re-eliminate the retained 7x7 and 6x6 Schur matrices with Arb
+        run: python verify_retained_core_matrices.py
+
+      - name: Exact symbolic Green-response identities
+        run: python verify_green_response_identities.py
+
+      - name: Four-step prime enumeration (256-bit Arb, endpoint 11)
+        run: |
+          python certify_log11_prime_four_step_degree.py 256 11 | tee prime-graph-check.ci.txt
+          echo "--- compare the first 15 lines with the stored prime-graph-check.txt"
+          diff <(head -n 15 prime-graph-check.ci.txt) <(head -n 15 prime-graph-check.txt)
+          grep -q '^root_D4_below_2.931158 True' prime-graph-check.ci.txt
+        shell: bash
+
+      - name: Upload fresh prime-enumeration output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prime-graph-check
+          path: supplement/prime-graph-check.ci.txt
+          if-no-files-found: ignore
