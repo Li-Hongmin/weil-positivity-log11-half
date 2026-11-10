@@ -7,9 +7,9 @@
 
 Hongmin Li (Institute of Science Tokyo; The University of Tokyo) · lihongmin@edu.k.u-tokyo.ac.jp
 
-This repository holds the manuscript as submitted to rStation
-(version 2, November 2026; version 1 is accepted at
-<https://rstation.ai/problems/riemann_hypothesis/papers/45>), the supplement
+This repository holds the manuscript in the version accepted on rStation
+(version 2, 9 November 2026: <https://rstation.ai/problems/riemann_hypothesis/papers/45/v2>;
+archived at Zenodo, DOI [10.5281/zenodo.24076153](https://doi.org/10.5281/zenodo.24076153)), the supplement
 with its verification programs and stored certificate data, and a
 continuous-integration workflow that reruns the short checks on a clean
 machine.
